@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    tools:context=".Activities.Examination.Add_Examination">
+
+<android.support.v7.widget.Toolbar
+    android:background="@color/buttons"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:padding="8dp">
+
+    <TextView
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Physical Examination"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/white" />
+
+</android.support.v7.widget.Toolbar>
+
+
+        <GridLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="5">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="HEIGHT "
+                android:textAlignment="center"
+                android:textColor="@color/buttons" />
+
+            <EditText
+                android:id="@+id/hid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="" />
+
+
+            <TextView
+
+                android:textAlignment="center"
+                android:id="@+id/weight"
+                android:layout_width="150dp"
+                android:textColor="@color/buttons"
+                android:layout_height="wrap_content"
+                android:text="WEIGHT " />
+
+            <EditText
+                android:id="@+id/wtid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="" />
+
+            <TextView
+                android:textColor="@color/buttons"
+                android:textAlignment="center"
+                android:id="@+id/tvTemp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="TEMPERATURE " />
+
+            <EditText
+                android:id="@+id/tempid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="" />
+
+            <TextView
+                android:textColor="@color/buttons"
+                android:textAlignment="center"
+                android:id="@+id/tvbp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="BLOOD PRESSURE " />
+
+            <EditText
+                android:id="@+id/idbp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="" />
+
+            <TextView
+                android:textColor="@color/buttons"
+                android:textAlignment="center"
+                android:id="@+id/tvsu"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="SUGAR " />
+
+            <EditText
+                android:id="@+id/idsu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="" />
+
+        </GridLayout>
+
+    <Button
+        android:id="@+id/ph_next_btn"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttons"
+        android:text="Next"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+
+
+</LinearLayout>

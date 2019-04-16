@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="8dp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Doctor.Doctor_Register">
+    tools:context=".Activities.Doctor.Add_Patient">
+
+
 
 
     <android.support.v7.widget.Toolbar
@@ -17,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Doctor Registration"
+            android:text="Patient Registration"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -27,14 +28,14 @@
     <EditText
 
 
-        android:id="@+id/dname"
+        android:id="@+id/pname"
         android:hint="Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <RadioGroup
         android:padding="8dp"
-        android:id="@+id/dgen"
+        android:id="@+id/pgen"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -67,10 +68,14 @@
     </RadioGroup>
 
 
+    <EditText
+        android:id="@+id/page"
+        android:hint="Age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <EditText
-
-        android:id="@+id/dmob"
+        android:id="@+id/pmob"
         android:hint="Mobile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -78,52 +83,19 @@
 
     <EditText
 
-        android:id="@+id/demail"
+        android:id="@+id/pemail"
         android:hint="Email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
-
-        android:id="@+id/dpass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:ems="10"
-        android:inputType="textPassword" />
-
-    <EditText
-
-        android:id="@+id/dcity"
+        android:id="@+id/pcity"
         android:hint="City"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <EditText
-
-        android:id="@+id/dspec"
-        android:hint="Speciality"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <EditText
-
-        android:id="@+id/dexp"
-        android:hint="Experience"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <EditText
-
-        android:id="@+id/dregno"
-        android:hint="Reg no"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <Button
-        android:id="@+id/doc_reg"
+        android:id="@+id/add_pat_btn"
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -132,6 +104,5 @@
         android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="14sp" />
-
 
 </LinearLayout>

@@ -4,43 +4,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:padding="8dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.MainActivity">
 
-    <TextView
-        android:textSize="35sp"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:text="eDoctor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-
 
     <LinearLayout
 
-        android:layout_marginTop="100dp"
-        android:orientation="horizontal"
+        android:padding="8dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
-    <Button
-        android:onClick="doclogin"
-        android:text="Doctor"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content" />
+        <ImageView
+
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/edr" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/buttons"
+            android:onClick="doclogin"
+            android:text="Doctor"
+            android:textColor="@android:color/white" />
 
 
-    <Button
-        android:onClick="patlogin"
-        android:text="Patient"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content" />
+        <Button
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/holo_blue_dark"
+            android:onClick="patlogin"
+            android:text="Patient" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_orange_dark"
+            android:onClick="admin_login"
+            android:text="Admin" />
+
+
     </LinearLayout>
+
 
 
 </LinearLayout>

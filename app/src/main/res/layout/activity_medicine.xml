@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Medicine.Medicine">
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:text="Medications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.Toolbar>
+    <GridLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="5">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Medication Name "
+            android:textAlignment="center"
+            android:textColor="@color/buttons" />
+
+        <EditText
+            android:id="@+id/mn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+
+
+        <TextView
+
+            android:textAlignment="center"
+            android:id="@+id/weight"
+            android:layout_width="150dp"
+            android:textColor="@color/buttons"
+            android:layout_height="wrap_content"
+            android:text="Frequency " />
+
+        <EditText
+            android:id="@+id/mf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="" />
+
+        <TextView
+            android:textColor="@color/buttons"
+            android:textAlignment="center"
+            android:id="@+id/tvTemp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="days " />
+
+        <EditText
+            android:id="@+id/md"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+
+        <TextView
+            android:textColor="@color/buttons"
+            android:textAlignment="center"
+            android:id="@+id/tvbp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text=" Qty" />
+
+        <EditText
+            android:id="@+id/mq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+
+        <TextView
+            android:textColor="@color/buttons"
+            android:textAlignment="center"
+            android:id="@+id/tvsu"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="AF/BF " />
+
+        <EditText
+            android:id="@+id/mab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+
+
+        <TextView
+            android:textColor="@color/buttons"
+            android:textAlignment="center"
+
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Instruction " />
+
+        <EditText
+             android:id="@+id/mi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+
+
+
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/med_btn_nxt"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttons"
+        android:text="Next"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+
+
+
+
+</LinearLayout>

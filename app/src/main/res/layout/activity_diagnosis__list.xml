@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Diagnosis.Diagnosis_List">
+
+
+    <TextView
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:text="Add Investigations "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+        <GridLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="1">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Diagnosis "
+                android:textColor="@color/buttons"
+                android:textSize="12sp" />
+
+            <EditText
+
+                android:id="@+id/diag_edi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 />
+
+        </GridLayout>
+
+
+
+    <Button
+        android:id="@+id/diag_next_btn"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttons"
+        android:text="Next"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".Activities.Admin.Admin_Login">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/edr" />
+
+    <GridLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="USER ID "
+            android:textColor="@color/buttons"
+            android:textSize="12sp" />
+
+        <EditText
+
+            android:id="@+id/Aname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="username" />
+            android:hint="username" />
+            android:hint="username" />
+            android:hint="username" />
+
+        <TextView
+            android:id="@+id/Apwd"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="PASSWORD "
+            android:textColor="@color/buttons"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/apwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password" />
+    </GridLayout>
+
+
+    <Button
+        android:id="@+id/A_Login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttons"
+        android:text="Login"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+</LinearLayout>

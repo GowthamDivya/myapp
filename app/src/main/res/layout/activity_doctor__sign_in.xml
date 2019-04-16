@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Doctor.Doctor_SignIn">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/edr" />
+
+    <GridLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <TextView
+            android:textAlignment="center"
+            android:id="@+id/demail"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="USER ID " />
+
+        <EditText
+            android:id="@+id/doc_demail_doclog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+
+        <TextView
+
+            android:textAlignment="center"
+            android:id="@+id/tvpwd"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="PASSWORD " />
+
+        <EditText
+            android:id="@+id/doc_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+    </GridLayout>
+
+
+    <Button
+        android:id="@+id/doc_login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttons"
+        android:text="Login" />
+
+
+    <Button
+        android:onClick="gotodocreg"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttons"
+        android:text="Register" />
+
+
+</LinearLayout>

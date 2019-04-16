@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Complaints.Complaint_List">
+
+<Toolbar
+    android:background="@color/buttons"
+    android:layout_width="match_parent"
+    android:layout_height="56dp">
+
+    <TextView
+
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Complaints"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+</Toolbar>
+
+
+
+    <ScrollView
+        android:layout_marginTop="50dp"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <GridLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:rowCount="10">
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Fever" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cough" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Throat Pain" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loose Motion" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gas" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="High Cholesterol" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="High Bp" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Migrane" />
+
+
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blocked Nose" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Runny Nose" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Headache" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Constipation" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vomtings" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diabets" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Low Bp" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back Pain" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shoulder Pain" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lower Back Pain" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Joint Pain" />
+
+            <CheckBox
+                android:textColor="@color/buttons"
+                android:textSize="12sp"
+                android:id="@+id/c20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arthrists" />
+
+        </GridLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/c_nxt_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/buttons"
+        android:text="NEXT"
+        android:textColor="@android:color/white" />
+</LinearLayout>
