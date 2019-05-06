@@ -1,6 +1,8 @@
 package edr.bhanuinfosystems.com.Activities.Doctor;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,28 +28,35 @@ import java.util.Map;
 import edr.bhanuinfosystems.com.R;
 import edr.bhanuinfosystems.com.Singleton.VolleySingleton;
 import edr.bhanuinfosystems.com.Storage.SharedPrefManager;
+import edr.bhanuinfosystems.com.model.Admin;
 import edr.bhanuinfosystems.com.model.Doctor;
+import edr.bhanuinfosystems.com.model.Patient;
 import edr.bhanuinfosystems.com.urls.URLs;
 
 public class Add_Patient extends AppCompatActivity {
-String PN,PG,PA,PM,PE,PAA;
-EditText pname,pmob,pemail,padd,page;
-Button save;
-String p_gen;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
+
+
+    String spname,spgen,spage,spmob,spemail,spcity,spdid;
+    EditText pname,pmob,pemail,page,pcity,pdid;
+    Button save;
+    String p_gen;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__patient);
+        SharedPreferences sharedPreferences = getSharedPreferences("mydata", Context.MODE_PRIVATE);
+
         setupview();
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(validate())
                 {
-            addPatient();
+                    addPatient();
 
 
                 }
@@ -58,6 +67,7 @@ String p_gen;
     }
 
     private void addPatient() {
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_ADD_PAT,
                 new Response.Listener<String>() {
                     @Override
@@ -67,7 +77,7 @@ String p_gen;
                             //converting response to json object
                             JSONObject obj = new JSONObject(response);
 
-                            Log.d("RESPONSE",obj.toString());
+
 
                             //if no error in response
                             if (!obj.getBoolean("error")) {
@@ -76,16 +86,13 @@ String p_gen;
                                 //getting the user from the response
                                 JSONObject userJson = obj.getJSONObject("user");
 
-                                //creating a new user object
-                                Doctor user = new Doctor(
-                                );
 
-                                //storing the user in shared preferences
-                                SharedPrefManager.getInstance(getApplicationContext()).docLogin(user);
 
-                                //starting the profile activity
+
                                 finish();
-                                startActivity(new Intent(getApplicationContext(), Doctor_Home.class));
+
+
+
                             } else {
                                 Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             }
@@ -103,11 +110,14 @@ String p_gen;
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("pname", PN);
-                params.put("pgen", PG);
-                params.put("page", PA);
-                params.put("dmob", PM);
-                params.put("pemail",PE);
+                params.put("pname", spname);
+                params.put("pgen", spgen);
+                params.put("page",spage);
+                params.put("pmob", spmob);
+                params.put("pemail",spemail);
+                params.put("pcity",spcity);
+                params.put("did", spdid);
+
                 return params;
             }
         };
@@ -121,15 +131,17 @@ String p_gen;
     private boolean validate() {
         boolean result =false;
 
-        PN = pname.getText().toString();
-        PG = pname.getText().toString();
-        PA = pname.getText().toString();
-        PM = pname.getText().toString();
-        PE = pname.getText().toString();
-        PAA = pname.getText().toString();
+        int radio =  radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(radio);
+        spname = pname.getText().toString();
+        spgen = radioButton.getText().toString();
+        spage = page.getText().toString();
+        spmob = pmob.getText().toString();
+        spemail = pemail.getText().toString();
+        spcity = pcity.getText().toString();
+        spdid = pdid.getText().toString();
 
-
-        if(PN.isEmpty() && PG.isEmpty()  && PA.isEmpty()  && PM.isEmpty()  && PE.isEmpty()   && PAA.isEmpty())
+        if(spname.isEmpty() && spage.isEmpty()  && spgen.isEmpty()  && spmob.isEmpty()  && spemail.isEmpty()  && spcity.isEmpty()  && spdid.isEmpty() )
         {
             Toast.makeText(Add_Patient.this, "Please enter all the details ", Toast.LENGTH_SHORT).show();
         }
@@ -144,14 +156,16 @@ String p_gen;
     }
 
     private void setupview() {
-        int radio =  radioGroup.getCheckedRadioButtonId();
-        radioButton = findViewById(radio);
-        p_gen  = radioButton.getText().toString();
+
+        radioGroup = (RadioGroup)findViewById(R.id.pgen);
         pname = (EditText)findViewById(R.id.pname);
+        radioGroup = (RadioGroup)findViewById(R.id.pgen);
         page = (EditText)findViewById(R.id.page);
-        pmob = (EditText)findViewById(R.id.pname);
+        pmob = (EditText)findViewById(R.id.pmob);
         pemail = (EditText)findViewById(R.id.pname);
-        padd = (EditText)findViewById(R.id.pname);
+        pcity = (EditText)findViewById(R.id.pcity);
+        pdid = (EditText)findViewById(R.id.pdid);
+
         save = (Button)findViewById(R.id.add_pat_btn);
 
 

@@ -2,36 +2,32 @@ package edr.bhanuinfosystems.com.model;
 
 public class Patient {
 
-    private int mrno, page, pmob,doc_id;
-    private String pname, pgen, pemail, pbg, pcity, padd;
+    private  int id;
+    private String pname;
+    private String pgen;
+    private int page;
+    private int pmob;
 
-    public Patient(int mrno, int page, int pmob, int doc_id, String pname, String pgen, String pemail, String pbg, String pcity, String padd) {
-        this.mrno = mrno;
-        this.page = page;
-        this.pmob = pmob;
-        this.doc_id = doc_id;
+    private String pemail;
+    private String pcity;
+    private int did;
+
+    public Patient(int id, String pname, String pgen, int page, int pmob, String pemail, String pcity, int did) {
+        this.id = id;
         this.pname = pname;
         this.pgen = pgen;
+        this.page = page;
+        this.pmob = pmob;
         this.pemail = pemail;
-        this.pbg = pbg;
         this.pcity = pcity;
-        this.padd = padd;
+        this.did = did;
     }
 
-    public int getMrno() {
-        return mrno;
+    public Patient() {
     }
 
-    public int getPage() {
-        return page;
-    }
-
-    public int getPmob() {
-        return pmob;
-    }
-
-    public int getDoc_id() {
-        return doc_id;
+    public int getId() {
+        return id;
     }
 
     public String getPname() {
@@ -42,20 +38,57 @@ public class Patient {
         return pgen;
     }
 
-    public String getPemail() {
-        return pemail;
+    public int getPage() {
+        return page;
     }
 
-    public String getPbg() {
-        return pbg;
+    public int getPmob() {
+        return pmob;
+    }
+
+    public String getPemail() {
+        return pemail;
     }
 
     public String getPcity() {
         return pcity;
     }
 
-    public String getPadd() {
-        return padd;
+    public int getDid() {
+        return did;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPname(String pname) {
+        this.pname = pname;
+    }
+
+    public void setPgen(String pgen) {
+        this.pgen = pgen;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public void setPmob(int pmob) {
+        this.pmob = pmob;
+    }
+
+    public void setPemail(String pemail) {
+        this.pemail = pemail;
+    }
+
+    public void setPcity(String pcity) {
+        this.pcity = pcity;
+    }
+
+    public void setDid(int did) {
+        this.did = did;
     }
 }
+
 

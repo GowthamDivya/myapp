@@ -29,9 +29,11 @@
 
 
         android:id="@+id/pname"
-        android:hint="Name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
     <RadioGroup
         android:padding="8dp"
@@ -70,29 +72,53 @@
 
     <EditText
         android:id="@+id/page"
-        android:hint="Age"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Age"
+        android:inputType="number"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/pmob"
-        android:hint="Mobile"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Mobile"
+        android:inputType="phone"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
 
     <EditText
 
         android:id="@+id/pemail"
-        android:hint="Email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/pcity"
-        android:hint="City"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="City"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
+
+
+
+
+    <EditText
+        android:id="@+id/pdid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="did"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
     <Button
         android:id="@+id/add_pat_btn"

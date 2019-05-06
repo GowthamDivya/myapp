@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import edr.bhanuinfosystems.com.Activities.Admin.Admin_Home;
 import edr.bhanuinfosystems.com.Activities.Admin.Admin_Login;
+import edr.bhanuinfosystems.com.Activities.Admin.Registered_doc_list;
 import edr.bhanuinfosystems.com.R;
 import edr.bhanuinfosystems.com.Storage.SharedPrefManager;
 
@@ -40,8 +42,15 @@ public class Doctor_Home extends AppCompatActivity {
     }
 
     public void Add_reg(View view) {
+        startActivity(new Intent(this,Add_Patient.class));
+
     }
 
     public void viewpat(View view) {
+
+
+        Intent i = new Intent(Doctor_Home.this, pat_list.class);
+        startActivity(i);
+
     }
 }

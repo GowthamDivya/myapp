@@ -1,6 +1,8 @@
 package edr.bhanuinfosystems.com.Activities.Doctor;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -66,7 +68,7 @@ public class Doctor_SignIn extends AppCompatActivity {
     private void login() {
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_DOC_LOGIN,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,"http://192.168.43.39/backend/doc_login.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -81,15 +83,30 @@ public class Doctor_SignIn extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
                                 //getting the user from the response
-                                JSONObject userJson = obj.getJSONObject("user");
+                                JSONObject jsonObject = obj.getJSONObject("user");
 
                                 //creating a new user object
-                                Doctor user = new Doctor(
+                                Doctor anime = new Doctor();
+                                anime.setId(jsonObject.getInt("id"));
+                                anime.setDname(jsonObject.getString("dname"));
+                                anime.setDgen(jsonObject.getString("dgen"));
+                                anime.setDmob(jsonObject.getInt("dmob"));
+                                anime.setDemail(jsonObject.getString("demail"));
+                                anime.setDcity(jsonObject.getString("dcity"));
+                                anime.setDspec(jsonObject.getString("dspec"));
+                                anime.setDexp(jsonObject.getInt("dexp"));
+                                anime.setDreg(jsonObject.getInt("dreg"));
+                                anime.setStatus(jsonObject.getInt("status"));
 
-                                );
+
+                                SharedPreferences sharedPreferences = getSharedPreferences("mydata", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putInt("did", anime.getId());
+
+
 
                                 //storing the user in shared preferences
-                                SharedPrefManager.getInstance(getApplicationContext()).docLogin(user);
+                                SharedPrefManager.getInstance(getApplicationContext()).docLogin(anime);
 
                                 //starting the profile activity
                                 finish();
@@ -112,7 +129,7 @@ public class Doctor_SignIn extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("demail", demail);
-                params.put("dpass", dpass);
+                params.put("password", dpass);
                 return params;
             }
         };

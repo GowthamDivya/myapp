@@ -32,7 +32,9 @@
             android:id="@+id/doc_demail_doclog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="" />
+            android:hint=""
+            android:selectAllOnFocus="true"
+            android:singleLine="true" />
 
         <TextView
 
@@ -46,7 +48,9 @@
             android:id="@+id/doc_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="" />
+            android:hint=""
+            android:selectAllOnFocus="true"
+            android:singleLine="true" />
     </GridLayout>
 
 

@@ -9,7 +9,8 @@ import edr.bhanuinfosystems.com.Activities.Admin.Admin_Login;
 import edr.bhanuinfosystems.com.Activities.Doctor.Doctor_Register;
 import edr.bhanuinfosystems.com.Activities.Doctor.Doctor_SignIn;
 import edr.bhanuinfosystems.com.Activities.Examination.Add_Examination;
-import edr.bhanuinfosystems.com.Activities.complaint.c_list;
+
+import edr.bhanuinfosystems.com.Activities.complaint.Complaint_list;
 import edr.bhanuinfosystems.com.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void patlogin(View view) {
+
+        Intent k = new Intent(this, Complaint_list.class);
+        startActivity(k);
 
     }
 

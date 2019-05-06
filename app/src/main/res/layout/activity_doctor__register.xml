@@ -28,9 +28,12 @@
 
 
         android:id="@+id/dname"
-        android:hint="Name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
     <RadioGroup
         android:padding="8dp"
@@ -67,60 +70,75 @@
     </RadioGroup>
 
 
-
     <EditText
-
         android:id="@+id/dmob"
-        android:hint="Mobile"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Mobile"
+        android:inputType="phone"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
 
     <EditText
 
         android:id="@+id/demail"
-        android:hint="Email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
     <EditText
 
         android:id="@+id/dpass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
+
 
     <EditText
 
         android:id="@+id/dcity"
-        android:hint="City"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="City"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
     <EditText
 
         android:id="@+id/dspec"
-        android:hint="Speciality"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Speciality"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
 
     <EditText
 
         android:id="@+id/dexp"
-        android:hint="Experience"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Experience"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
 
     <EditText
 
         android:id="@+id/dregno"
-        android:hint="Reg no"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Reg no"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
 
     <Button
         android:id="@+id/doc_reg"

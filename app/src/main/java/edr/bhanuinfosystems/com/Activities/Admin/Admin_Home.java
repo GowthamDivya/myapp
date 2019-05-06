@@ -48,4 +48,9 @@ public class Admin_Home extends AppCompatActivity {
 
     }
 
+    public void list(View view) {
+
+        Intent j = new Intent(Admin_Home.this,Active_Doctor_list.class);
+        startActivity(j);
+    }
 }

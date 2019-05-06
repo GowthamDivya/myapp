@@ -34,7 +34,9 @@
             android:id="@+id/Aname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="username" />
+            android:hint="username"
+            android:selectAllOnFocus="true"
+            android:singleLine="true" />
             android:hint="username" />
             android:hint="username" />
             android:hint="username" />

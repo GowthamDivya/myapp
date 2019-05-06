@@ -20,10 +20,9 @@ import edr.bhanuinfosystems.com.model.physcial_examination;
 public class SharedPrefManager {
 
     //the constants
-    private static final String SHARED_PREF_NAME = "simplifiedcodingsharedpref";
+    private static final String SHARED_PREF_NAME = "gowtham";
     private static final String MYDATA = "mydata";
     private static final String KEY_USERNAME = "keyusername";
-
     private static final String KEY_EMAIL = "keyemail";
     private static final String KEY_GENDER = "keygender";
     private static final String KEY_ID = "keyid";
@@ -50,7 +49,7 @@ public class SharedPrefManager {
     private static final String PMOB = "pmob";
     private static final String PEMAIL = "pemail";
     private static final String PADD = "padd";
-    private static final String PDOC = "pdoc";
+    private static final String PDOC = "pdid";
 
 //Physical Examinations
     private static final String HEIGHT = "height";
@@ -95,6 +94,7 @@ public class SharedPrefManager {
 
     //method to let the user login
     //this method will store the user data in shared preferences
+
     public void docLogin(Doctor doctor) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -179,8 +179,5 @@ public void pe(physcial_examination pe)
     editor.apply();
 
 }
-
-
-
 
 }

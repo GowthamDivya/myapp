@@ -29,17 +29,16 @@
         android:background="@color/colorPrimary"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:onClick="doclist"
         android:text="Register Dotors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 
     <Button
+        android:onClick="list"
         android:background="@color/colorPrimary"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:onClick="doclist"
         android:text="Active Doctors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

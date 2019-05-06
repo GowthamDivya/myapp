@@ -68,6 +68,7 @@ Register.setOnClickListener(new View.OnClickListener() {
 
     private boolean validate() {
         boolean result =false;
+
         int radio =  radioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(radio);
         doc_gen  = radioButton.getText().toString();
@@ -104,7 +105,7 @@ Register.setOnClickListener(new View.OnClickListener() {
                             //converting response to json object
                             JSONObject obj = new JSONObject(response);
 
-                            Log.d("RESPONSE",obj.toString());
+
 
                             //if no error in response
                             if (!obj.getBoolean("error")) {
@@ -114,8 +115,7 @@ Register.setOnClickListener(new View.OnClickListener() {
                                 JSONObject userJson = obj.getJSONObject("user");
 
                                 //creating a new user object
-                                Doctor user = new Doctor(
-                                );
+                                Doctor user = new Doctor();
 
                                 //storing the user in shared preferences
                                 SharedPrefManager.getInstance(getApplicationContext()).docLogin(user);
@@ -144,7 +144,7 @@ Register.setOnClickListener(new View.OnClickListener() {
                 params.put("dgen", doc_gen);
                 params.put("dmob", doc_mob);
                 params.put("demail", doc_email);
-                params.put("password",doc_Pass);
+                params.put("dpass",doc_Pass);
                 params.put("dcity",doc_city);
                 params.put("dspec",doc_spec);
                 params.put("dexp",doc_exp);

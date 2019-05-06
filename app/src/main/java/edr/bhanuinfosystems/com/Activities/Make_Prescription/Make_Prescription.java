@@ -30,7 +30,12 @@ import edr.bhanuinfosystems.com.urls.URLs;
 
 public class Make_Prescription extends AppCompatActivity {
 
-    String height,weight,temp,bp,sugar;
+    String height,weight,temp,bp,sugar,pid;
+    String cnotes,cexm;
+    String pat_id,pname,pgen,page,pmob,pemail,pcity,pdid;
+
+
+
 
     Button save;
     Context ctx;
@@ -43,40 +48,130 @@ public  static final String DEFAULT="N/A";
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 data();
-
+                cnotesdata();
+                pdata();
                 senddata();
-
-
-                SharedPreferences sharedPreferences = getSharedPreferences("mydata", Context.MODE_PRIVATE);
-                //Physical Examinations
-         height = sharedPreferences.getString("height",DEFAULT);
-         weight = sharedPreferences.getString("weight",DEFAULT);
-         temp = sharedPreferences.getString("temp",DEFAULT);
-         bp = sharedPreferences.getString("bp",DEFAULT);
-         sugar = sharedPreferences.getString("sugar",DEFAULT);
-        Toast.makeText(Make_Prescription.this, height+weight+temp+bp+sugar, Toast.LENGTH_SHORT).show();
-
             }
         });
     }
 
-    private void senddata() {
+    private void pdata() {
+
+        SharedPreferences sharedPreferences = getSharedPreferences("mydata", Context.MODE_PRIVATE);
+        //Physical Examinations
+        pat_id = sharedPreferences.getString("id",DEFAULT);
+        pname = sharedPreferences.getString("pname",DEFAULT);
+        pgen = sharedPreferences.getString("pgen",DEFAULT);
+        page = sharedPreferences.getString("page",DEFAULT);
+        pmob = sharedPreferences.getString("pmob",DEFAULT);
+        pemail = sharedPreferences.getString("pemail",DEFAULT);
+        pcity = sharedPreferences.getString("pcity",DEFAULT);
+        pdid = sharedPreferences.getString("pdid",DEFAULT);
+        Toast.makeText(Make_Prescription.this, pat_id+pname+pgen+page+pmob+pemail+pcity+pdid , Toast.LENGTH_SHORT).show();
+
+
 
 
     }
 
-    private void data() {
-
-
+    private void cnotesdata() {
         SharedPreferences sharedPreferences = getSharedPreferences("mydata", Context.MODE_PRIVATE);
         //Physical Examinations
-        String height = sharedPreferences.getString("height",DEFAULT);
-        String weight = sharedPreferences.getString("weight",DEFAULT);
-        String temp = sharedPreferences.getString("temp",DEFAULT);
-        String bp = sharedPreferences.getString("bp",DEFAULT);
-        String sugar = sharedPreferences.getString("sugar",DEFAULT);
-        Toast.makeText(Make_Prescription.this, height+weight+temp+bp+sugar, Toast.LENGTH_SHORT).show();
+        cnotes = sharedPreferences.getString("cnotes",DEFAULT);
+        cexm = sharedPreferences.getString("cexam",DEFAULT);
+
+        Toast.makeText(Make_Prescription.this, cnotes+cexm, Toast.LENGTH_SHORT).show();
+
+
+
+    }
+
+    private void senddata()
+    {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,"http://192.168.43.39/php/pdf.php"  ,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            //converting response to json object
+                            JSONObject obj = new JSONObject(response);
+
+
+
+                            //if no error in response
+                            if (!obj.getBoolean("error")) {
+                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+
+                                //getting the user from the response
+                                JSONObject userJson = obj.getJSONObject("user");
+
+                                //creating a new user object
+                                Doctor user = new Doctor();
+
+                                //storing the user in shared preferences
+                                SharedPrefManager.getInstance(getApplicationContext()).docLogin(user);
+
+                                //starting the profile activity
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), Doctor_Home.class));
+                            } else {
+                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("height", height);
+                params.put("weight", weight);
+                params.put("temp", temp);
+                params.put("sugar", sugar);
+                params.put("bp",bp);
+                params.put("cnotes", cnotes);
+                params.put("cexam",cexm);
+
+                params.put("pid",pid);
+                params.put("pname",pname);
+                params.put("page",page);
+                params.put("pgen",pgen);
+                params.put("did",pdid);
+                params.put("pmob",pmob);
+                params.put("pcity",pcity);
+
+
+
+
+
+                return params;
+            }
+        };
+
+        VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
+
+    }
+
+    private void data() {
+        SharedPreferences sharedPreferences = getSharedPreferences("mydata", Context.MODE_PRIVATE);
+        //Physical Examinations
+        height = sharedPreferences.getString("height",DEFAULT);
+        weight = sharedPreferences.getString("weight",DEFAULT);
+        temp = sharedPreferences.getString("temp",DEFAULT);
+        bp = sharedPreferences.getString("bp",DEFAULT);
+        sugar = sharedPreferences.getString("sugar",DEFAULT);
+        pid = sharedPreferences.getString("pid",DEFAULT);
+        Toast.makeText(Make_Prescription.this, height+weight+temp+bp+sugar+pid, Toast.LENGTH_SHORT).show();
+
     }
 }
