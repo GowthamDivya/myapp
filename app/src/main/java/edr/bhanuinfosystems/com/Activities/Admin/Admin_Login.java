@@ -66,11 +66,11 @@ public class Admin_Login extends AppCompatActivity {
 
     private void login() {
 
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_admin_login,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
 
                         try {
                             //converting response to json object

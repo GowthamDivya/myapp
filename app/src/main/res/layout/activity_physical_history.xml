@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.physical_history.physical_history">
+
+
+    <android.support.v7.widget.Toolbar
+        android:background="@color/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:padding="8dp">
+
+        <TextView
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Physical Examination"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/white" />
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <GridLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Clinical Notes  "
+            android:textAlignment="center"
+            android:textColor="@color/buttons" />
+
+        <EditText
+            android:id="@+id/cnotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+
+
+        <TextView
+
+            android:id="@+id/weight"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Examinations"
+            android:textAlignment="center"
+            android:textColor="@color/buttons" />
+
+        <EditText
+            android:id="@+id/cexam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="" />
+
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/c_next_btn"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttons"
+        android:text="Next"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+</LinearLayout>

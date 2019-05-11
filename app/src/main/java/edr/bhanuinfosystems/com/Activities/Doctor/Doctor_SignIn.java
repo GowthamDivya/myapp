@@ -1,8 +1,6 @@
 package edr.bhanuinfosystems.com.Activities.Doctor;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,9 +17,12 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import edr.bhanuinfosystems.com.Activities.Admin.Admin_Home;
 import edr.bhanuinfosystems.com.R;
 import edr.bhanuinfosystems.com.Singleton.VolleySingleton;
 import edr.bhanuinfosystems.com.Storage.SharedPrefManager;
@@ -30,7 +31,7 @@ import edr.bhanuinfosystems.com.urls.URLs;
 
 public class Doctor_SignIn extends AppCompatActivity {
 
-
+    private List<Doctor> list ;
     EditText id,pwd;
     Button doc_login;
     String demail,dpass;
@@ -42,6 +43,7 @@ public class Doctor_SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor__sign_in);
 
+        list = new ArrayList<>();
         if (SharedPrefManager.getInstance(this).docisLoggedIn()) {
             finish();
             startActivity(new Intent(this,Doctor_Home.class));
@@ -67,12 +69,10 @@ public class Doctor_SignIn extends AppCompatActivity {
 
     private void login() {
 
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,"http://192.168.43.39/backend/doc_login.php",
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLs.URL_DOC_LOGIN,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
 
                         try {
                             //converting response to json object
@@ -85,7 +85,6 @@ public class Doctor_SignIn extends AppCompatActivity {
                                 //getting the user from the response
                                 JSONObject jsonObject = obj.getJSONObject("user");
 
-                                //creating a new user object
                                 Doctor anime = new Doctor();
                                 anime.setId(jsonObject.getInt("id"));
                                 anime.setDname(jsonObject.getString("dname"));
@@ -99,18 +98,13 @@ public class Doctor_SignIn extends AppCompatActivity {
                                 anime.setStatus(jsonObject.getInt("status"));
 
 
-                                SharedPreferences sharedPreferences = getSharedPreferences("mydata", Context.MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putInt("did", anime.getId());
-
 
 
                                 //storing the user in shared preferences
                                 SharedPrefManager.getInstance(getApplicationContext()).docLogin(anime);
-
                                 //starting the profile activity
                                 finish();
-                                startActivity(new Intent(getApplicationContext(),Doctor_Home.class));
+                                startActivity(new Intent(getApplicationContext(), Doctor_Home.class));
                             } else {
                                 Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             }
@@ -129,12 +123,13 @@ public class Doctor_SignIn extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("demail", demail);
-                params.put("password", dpass);
+                params.put("dpass", dpass);
                 return params;
             }
         };
         //Adding the string request to the queue
         VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
+
 
     }
 

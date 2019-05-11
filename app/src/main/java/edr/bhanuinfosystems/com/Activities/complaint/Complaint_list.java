@@ -22,13 +22,15 @@ import edr.bhanuinfosystems.com.Adapters.complaint_list_Adapter;
 import edr.bhanuinfosystems.com.R;
 import edr.bhanuinfosystems.com.model.Complaint;
 
+import static edr.bhanuinfosystems.com.urls.URLs.URL_complaints_list;
+
 public class Complaint_list extends AppCompatActivity {
 
     private JsonArrayRequest request ;
     private RequestQueue requestQueue ;
     private List<Complaint> list ;
     private RecyclerView recyclerView ;
-    public static final String URL_doclist = "http://192.168.43.39/backend/complaint_list.php";
+
 
 
     @Override
@@ -53,7 +55,7 @@ public class Complaint_list extends AppCompatActivity {
     private void loadProducts() {
 
 
-        request = new JsonArrayRequest(URL_doclist, new Response.Listener<JSONArray>() {
+        request = new JsonArrayRequest(URL_complaints_list, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
@@ -84,7 +86,6 @@ public class Complaint_list extends AppCompatActivity {
 
             }
         });
-
 
         requestQueue = Volley.newRequestQueue(Complaint_list.this);
         requestQueue.add(request) ;

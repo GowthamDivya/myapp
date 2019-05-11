@@ -33,22 +33,26 @@ import edr.bhanuinfosystems.com.model.Doctor;
 import edr.bhanuinfosystems.com.model.Patient;
 import edr.bhanuinfosystems.com.urls.URLs;
 
+import static edr.bhanuinfosystems.com.Configfiles.Config.SHARED_PREF_NAME;
+
 public class Add_Patient extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton radioButton;
 
 
-    String spname,spgen,spage,spmob,spemail,spcity,spdid;
-    EditText pname,pmob,pemail,page,pcity,pdid;
+
+    String spname,spgen,spage,spmob,spemail,spcity,spdid,doc_id;
+    EditText pname,pmob,pemail,page,pcity;
     Button save;
     String p_gen;
-
+    public  static final String DEFAULT="N/A";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__patient);
-        SharedPreferences sharedPreferences = getSharedPreferences("mydata", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        doc_id = sharedPreferences.getString("DID",DEFAULT);
 
         setupview();
         save.setOnClickListener(new View.OnClickListener() {
@@ -77,8 +81,6 @@ public class Add_Patient extends AppCompatActivity {
                             //converting response to json object
                             JSONObject obj = new JSONObject(response);
 
-
-
                             //if no error in response
                             if (!obj.getBoolean("error")) {
                                 Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
@@ -86,11 +88,7 @@ public class Add_Patient extends AppCompatActivity {
                                 //getting the user from the response
                                 JSONObject userJson = obj.getJSONObject("user");
 
-
-
-
                                 finish();
-
 
 
                             } else {
@@ -116,7 +114,7 @@ public class Add_Patient extends AppCompatActivity {
                 params.put("pmob", spmob);
                 params.put("pemail",spemail);
                 params.put("pcity",spcity);
-                params.put("did", spdid);
+                params.put("did", doc_id);
 
                 return params;
             }
@@ -139,7 +137,6 @@ public class Add_Patient extends AppCompatActivity {
         spmob = pmob.getText().toString();
         spemail = pemail.getText().toString();
         spcity = pcity.getText().toString();
-        spdid = pdid.getText().toString();
 
         if(spname.isEmpty() && spage.isEmpty()  && spgen.isEmpty()  && spmob.isEmpty()  && spemail.isEmpty()  && spcity.isEmpty()  && spdid.isEmpty() )
         {
@@ -164,7 +161,7 @@ public class Add_Patient extends AppCompatActivity {
         pmob = (EditText)findViewById(R.id.pmob);
         pemail = (EditText)findViewById(R.id.pname);
         pcity = (EditText)findViewById(R.id.pcity);
-        pdid = (EditText)findViewById(R.id.pdid);
+
 
         save = (Button)findViewById(R.id.add_pat_btn);
 

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.complaint.Complaint_list"></activity>
+        <activity android:name=".Activities.Symptoms.Symptom_list"></activity>
+        <activity android:name=".Activities.complaint.Complaint_list" />
         <activity android:name=".Activities.physical_history.physical_history" />
         <activity android:name=".Activities.Doctor.pat_list" />
         <activity android:name=".Activities.Admin.Active_Doctor_list" />

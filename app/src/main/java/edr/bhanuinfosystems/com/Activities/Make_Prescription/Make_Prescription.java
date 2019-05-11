@@ -26,7 +26,6 @@ import edr.bhanuinfosystems.com.R;
 import edr.bhanuinfosystems.com.Singleton.VolleySingleton;
 import edr.bhanuinfosystems.com.Storage.SharedPrefManager;
 import edr.bhanuinfosystems.com.model.Doctor;
-import edr.bhanuinfosystems.com.urls.URLs;
 
 public class Make_Prescription extends AppCompatActivity {
 

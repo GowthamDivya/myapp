@@ -1,6 +1,5 @@
 package edr.bhanuinfosystems.com.Adapters;
 
-
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,13 +14,13 @@ import edr.bhanuinfosystems.com.R;
 import edr.bhanuinfosystems.com.model.Complaint;
 import edr.bhanuinfosystems.com.model.Symptom;
 
-public class complaint_list_Adapter extends RecyclerView.Adapter<complaint_list_Adapter.ProductViewHolder> {
+public class symptoms_adapters extends RecyclerView.Adapter<symptoms_adapters.ProductViewHolder> {
 
 
     private Context mCtx;
-    private List<Complaint> productList;
+    private List<Symptom> productList;
 
-    public complaint_list_Adapter(Context mCtx, List<Complaint> productList) {
+    public symptoms_adapters(Context mCtx, List<Symptom> productList) {
         this.mCtx = mCtx;
         this.productList = productList;
     }
@@ -31,7 +30,7 @@ public class complaint_list_Adapter extends RecyclerView.Adapter<complaint_list_
 
         View view ;
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        view = inflater.inflate(R.layout.complaint_item_list,parent,false) ;
+        view = inflater.inflate(R.layout.symptom_item_list,parent,false) ;
         final ProductViewHolder viewHolder = new ProductViewHolder(view) ;
         viewHolder.view_container.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,11 +51,11 @@ public class complaint_list_Adapter extends RecyclerView.Adapter<complaint_list_
 
     @Override
     public void onBindViewHolder(ProductViewHolder holder, int position) {
-        Complaint product = productList.get(position);
+        Symptom product = productList.get(position);
 
 
 
-        holder.compname.setText(product.getCname());
+        holder.compname.setText(product.getSname());
 
 
 
@@ -76,8 +75,8 @@ public class complaint_list_Adapter extends RecyclerView.Adapter<complaint_list_
         public ProductViewHolder(View itemView) {
             super(itemView);
 
-            view_container = itemView.findViewById(R.id.container2);
-            compname = itemView.findViewById(R.id.complaint_name);
+            view_container = itemView.findViewById(R.id.container3);
+            compname = itemView.findViewById(R.id.symptom_name);
 
         }
     }

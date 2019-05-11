@@ -1,4 +1,4 @@
-package edr.bhanuinfosystems.com.Activities.Admin;
+package edr.bhanuinfosystems.com.Activities.Symptoms;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,33 +18,35 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import edr.bhanuinfosystems.com.Adapters.reg_doc_list_adapter;
+import edr.bhanuinfosystems.com.Activities.complaint.Complaint_list;
+import edr.bhanuinfosystems.com.Adapters.complaint_list_Adapter;
+import edr.bhanuinfosystems.com.Adapters.symptoms_adapters;
 import edr.bhanuinfosystems.com.R;
-import edr.bhanuinfosystems.com.model.Doctor;
+import edr.bhanuinfosystems.com.model.Complaint;
+import edr.bhanuinfosystems.com.model.Symptom;
 
-import static edr.bhanuinfosystems.com.urls.URLs.URL_doclist;
+import static edr.bhanuinfosystems.com.urls.URLs.URL_complaints_list;
+import static edr.bhanuinfosystems.com.urls.URLs.URL_symptoms_list;
 
-public class Registered_doc_list extends AppCompatActivity {
+public class Symptom_list extends AppCompatActivity {
 
     private JsonArrayRequest request ;
     private RequestQueue requestQueue ;
-    private List<Doctor> list ;
+    private List<Symptom> list ;
     private RecyclerView recyclerView ;
-
-
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registered_doc_list);
+        setContentView(R.layout.activity_symptom_list);
 
-        //getting the recyclerview from xml
-        recyclerView = findViewById(R.id.recylcerView);
+
+        recyclerView = findViewById(R.id.recylcerView5);
 
         //initializing the productlist
-        list = new ArrayList<>();
+        list = new ArrayList<Symptom>();
 
         //this method will fetch and parse json
         //to display it in recyclerview
@@ -54,7 +56,9 @@ public class Registered_doc_list extends AppCompatActivity {
 
     private void loadProducts() {
 
-        request = new JsonArrayRequest(URL_doclist, new Response.Listener<JSONArray>() {
+
+
+        request = new JsonArrayRequest(URL_symptoms_list, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
@@ -64,18 +68,9 @@ public class Registered_doc_list extends AppCompatActivity {
 
 
                     try {
-                        jsonObject = response.getJSONObject(i);
-                        Doctor anime = new Doctor() ;
-                        anime.setId(jsonObject.getInt("id"));
-                        anime.setDname(jsonObject.getString("dname"));
-                        anime.setDgen(jsonObject.getString("dgen"));
-                        anime.setDmob(jsonObject.getInt("dmob"));
-                        anime.setDemail(jsonObject.getString("demail"));
-                        anime.setDcity(jsonObject.getString("dcity"));
-                        anime.setDspec(jsonObject.getString("dspec"));
-                        anime.setDexp(jsonObject.getInt("dexp"));
-                        anime.setDreg(jsonObject.getInt("dreg"));
-                        anime.setStatus(jsonObject.getInt("status"));
+                        jsonObject = response.getJSONObject(i) ;
+                        Symptom anime = new Symptom() ;
+                        anime.setSname(jsonObject.getString("sname"));
                         list.add(anime);
 
                     } catch (JSONException e) {
@@ -95,19 +90,22 @@ public class Registered_doc_list extends AppCompatActivity {
             }
         });
 
-
-        requestQueue = Volley.newRequestQueue(Registered_doc_list.this);
+        requestQueue = Volley.newRequestQueue(Symptom_list.this);
         requestQueue.add(request) ;
+
+
+
 
 
     }
 
-    private void setuprecyclerview(List<Doctor> list) {
+    private void setuprecyclerview(List<Symptom> list) {
 
-
-        reg_doc_list_adapter myadapter = new reg_doc_list_adapter(this,list) ;
+        symptoms_adapters myadapter = new symptoms_adapters(this,list) ;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(myadapter);
+
+
 
     }
 }
